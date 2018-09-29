@@ -23,7 +23,7 @@ public class TrackSearchController {
     private GoogleMusicTrackFinder trackFinder;
 
 
-    @GetMapping(path = "/top100/{genre}")
+    @GetMapping(path = "/top/{genre}")
     public List<Track> getTop100Tracks(@PathVariable String genre) {
         return trackSearchService.retrieveTop100(Genre.GENRES.get(genre));
     }

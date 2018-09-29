@@ -1,6 +1,8 @@
 package me.dimamon.beatportsearcher.entities;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 /**
  * Representation of genre from BeatPort
@@ -21,8 +23,7 @@ public class Genre {
     // All genres (to search by name)
     public static Map<String, Genre> GENRES;
 
-    static
-    {
+    static {
         GENRES = new HashMap<>();
         GENRES.put(Genre.DRUM_AND_BASS.name, Genre.DRUM_AND_BASS);
         GENRES.put(Genre.BREAKS.name, Genre.BREAKS);

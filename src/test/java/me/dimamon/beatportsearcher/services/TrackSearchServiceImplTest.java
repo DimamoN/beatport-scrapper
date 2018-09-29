@@ -1,4 +1,4 @@
-package me.dimamon.beatportsearcher.service;
+package me.dimamon.beatportsearcher.services;
 
 import me.dimamon.beatportsearcher.entities.Genre;
 import me.dimamon.beatportsearcher.entities.Track;

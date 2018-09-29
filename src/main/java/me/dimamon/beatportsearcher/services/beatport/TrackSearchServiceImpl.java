@@ -3,6 +3,8 @@ package me.dimamon.beatportsearcher.services.beatport;
 import me.dimamon.beatportsearcher.entities.Genre;
 import me.dimamon.beatportsearcher.entities.Track;
 import me.dimamon.beatportsearcher.scrabbler.Top100Scrabbler;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -10,6 +12,8 @@ import java.util.Objects;
 
 @Service
 public class TrackSearchServiceImpl implements TrackSearchService {
+
+    private static final Logger log = LogManager.getLogger(TrackSearchServiceImpl.class);
 
     @Override
     public List<Track> retrieveTop100(Genre genre) {
@@ -19,10 +23,7 @@ public class TrackSearchServiceImpl implements TrackSearchService {
         }
 
         List<Track> tracks = Top100Scrabbler.processTOP100Page(genre);
-
-        System.out.printf("%d top tracks found for genre: %s",
-                tracks.size(), genre.getName());
-
+        log.debug("{} top tracks found for genre: {}", tracks.size(), genre.getName());
         return tracks;
     }
 

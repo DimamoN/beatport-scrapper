@@ -5,6 +5,8 @@ import me.dimamon.beatportsearcher.entities.Track;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;
 
@@ -19,6 +21,7 @@ import java.util.stream.Collectors;
  * Target page example: https://www.beatport.com/genre/house/5/top-100
  */
 public class Top100Scrabbler {
+    private static final Logger log = LoggerFactory.getLogger(Top100Scrabbler.class);
 
     private static RestTemplate rest = new RestTemplate();
 
@@ -40,8 +43,7 @@ public class Top100Scrabbler {
     }
 
     public static List<Track> processTOP100Page(Genre genre) {
-
-        System.out.printf("Attempting to get TOP100 %s tracks", genre.getName());
+        log.debug("Attempting to get TOP100 {} tracks", genre.getName());
         ResponseEntity<String> response = rest.getForEntity(buildUrl(genre), String.class);
 
         try {
@@ -54,12 +56,10 @@ public class Top100Scrabbler {
                 return new Track(title, parseArtists(artists));
             }).collect(Collectors.toList());
 
-            System.out.println(trackList);
-
             return trackList;
 
         } catch (NullPointerException e) {
-            System.err.println("Response is empty:" + e.toString());
+            log.error("Response is empty: {}", e.toString());
         }
         return Collections.emptyList();
     }
