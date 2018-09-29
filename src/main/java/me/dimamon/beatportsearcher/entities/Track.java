@@ -1,6 +1,7 @@
 package me.dimamon.beatportsearcher.entities;
 
 import java.beans.Transient;
+import java.util.List;
 import java.util.Objects;
 
 /**
@@ -10,12 +11,11 @@ public class Track {
 
     private String title;
 
-    //todo: change to list (they are separated by '\n')
-    private String artists;
+    private List<String> artists;
 
     //todo: add genre
 
-    public Track(String title, String artists) {
+    public Track(String title, List<String> artists) {
         this.title = title;
         this.artists = artists;
     }
@@ -24,13 +24,26 @@ public class Track {
         return title;
     }
 
-    public String getArtists() {
+    public List<String> getArtists() {
         return artists;
     }
 
+    /**
+     * @return {@code true} if all fields has values, otherwise {@code false}
+     */
     @Transient
     public boolean isFilled() {
-        return !title.isEmpty() && !artists.isEmpty();
+
+        if (title.isEmpty() || artists.isEmpty()) {
+            return false;
+        }
+
+        // check if there no empty record in artists list
+        if (artists.size() == 1 && artists.get(0).isEmpty()) {
+            return false;
+        }
+
+        return true;
     }
 
     @Override
@@ -51,7 +64,7 @@ public class Track {
     public String toString() {
         return "Track{" +
                 "title='" + title + '\'' +
-                ", artists='" + artists + '\'' +
+                ", artists=" + artists +
                 '}';
     }
 }

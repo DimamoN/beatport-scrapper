@@ -8,6 +8,7 @@ import org.jsoup.select.Elements;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;
 
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
@@ -34,6 +35,10 @@ public class Top100Scrabbler {
                 .replace("GENRE_ID", String.valueOf(genre.getId()));
     }
 
+    static List<String> parseArtists(String artists) {
+        return Arrays.asList(artists.split("\n"));
+    }
+
     public static List<Track> processTOP100Page(Genre genre) {
 
         System.out.printf("Attempting to get TOP100 %s tracks", genre.getName());
@@ -46,7 +51,7 @@ public class Top100Scrabbler {
                 final String title = el.getElementsByClass(TRACK_TITLE).get(0).attr("title");
                 final String artists = el.getElementsByClass(TRACK_ARTIST).get(0)
                         .getElementsByAttribute("data-artist").html();
-                return new Track(title, artists);
+                return new Track(title, parseArtists(artists));
             }).collect(Collectors.toList());
 
             System.out.println(trackList);
