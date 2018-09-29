@@ -2,6 +2,7 @@ package me.dimamon.beatportsearcher.controllers;
 
 import me.dimamon.beatportsearcher.entities.Genre;
 import me.dimamon.beatportsearcher.entities.Track;
+import me.dimamon.beatportsearcher.entities.TrackSearchResponse;
 import me.dimamon.beatportsearcher.services.GoogleMusicTrackFinder;
 import me.dimamon.beatportsearcher.services.beatport.TrackSearchService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,7 +30,7 @@ public class TrackSearchController {
     }
 
     @GetMapping(path = "/track/{name}")
-    public String searchTrack(@PathVariable String name) {
-        return trackFinder.findUrl(name);
+    public TrackSearchResponse searchTrack(@PathVariable String name) {
+        return trackFinder.findTrack(name);
     }
 }

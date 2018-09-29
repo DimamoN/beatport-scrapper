@@ -1,11 +1,13 @@
 package me.dimamon.beatportsearcher.services;
 
+import me.dimamon.beatportsearcher.entities.TrackSearchResponse;
+
 public interface TrackFinder {
 
     /**
      * @param request - string request (like: "Get Low")
-     * @return link to track
+     * @return search result {@link TrackSearchResponse}
      */
-    String findUrl(final String request);
+    TrackSearchResponse findTrack(final String request);
 
 }
