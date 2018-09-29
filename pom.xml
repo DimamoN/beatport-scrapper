@@ -44,6 +44,20 @@
 		</dependency>
 
 		<dependency>
+            <!-- google music unofficial api -->
+			<groupId>com.github.felixgail</groupId>
+			<artifactId>gplaymusic</artifactId>
+			<version>0.3.5</version>
+		</dependency>
+
+        <dependency>
+            <!-- temp solution for bug in google music unofficial api -->
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+            <version>2.7</version>
+        </dependency>
+
+		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>

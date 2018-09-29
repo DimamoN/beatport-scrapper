@@ -2,7 +2,8 @@ package me.dimamon.beatportsearcher.controllers;
 
 import me.dimamon.beatportsearcher.entities.Genre;
 import me.dimamon.beatportsearcher.entities.Track;
-import me.dimamon.beatportsearcher.services.TrackSearchService;
+import me.dimamon.beatportsearcher.services.GoogleMusicTrackFinder;
+import me.dimamon.beatportsearcher.services.beatport.TrackSearchService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -18,9 +19,17 @@ public class TrackSearchController {
     @Autowired
     private TrackSearchService trackSearchService;
 
+    @Autowired
+    private GoogleMusicTrackFinder trackFinder;
+
+
     @GetMapping(path = "/top100/{genre}")
     public List<Track> getTop100Tracks(@PathVariable String genre) {
         return trackSearchService.retrieveTop100(Genre.GENRES.get(genre));
     }
 
+    @GetMapping(path = "/track/{name}")
+    public String searchTrack(@PathVariable String name) {
+        return trackFinder.findUrl(name);
+    }
 }

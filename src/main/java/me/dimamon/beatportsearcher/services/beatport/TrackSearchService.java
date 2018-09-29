@@ -1,4 +1,4 @@
-package me.dimamon.beatportsearcher.services;
+package me.dimamon.beatportsearcher.services.beatport;
 
 import me.dimamon.beatportsearcher.entities.Genre;
 import me.dimamon.beatportsearcher.entities.Track;
@@ -16,4 +16,5 @@ public interface TrackSearchService {
      * @return list with top 100 tracks of target genre
      */
     List<Track> retrieveTop100(Genre genre);
+
 }

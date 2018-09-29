@@ -1,4 +1,4 @@
-package me.dimamon.beatportsearcher.services;
+package me.dimamon.beatportsearcher.services.beatport;
 
 import me.dimamon.beatportsearcher.entities.Genre;
 import me.dimamon.beatportsearcher.entities.Track;
@@ -25,4 +25,5 @@ public class TrackSearchServiceImpl implements TrackSearchService {
 
         return tracks;
     }
+
 }

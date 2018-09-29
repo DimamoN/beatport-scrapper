@@ -26,8 +26,8 @@ public class Top100Scrabbler {
     private static final String TRACK_ARTIST = "buk-track-artists";
     private static final String TRACK_TITLE = "buk-track-primary-title";
 
-    private static String BASE_URL = "https://www.beatport.com/";
-    private static String TOP_100_PATTERN = BASE_URL + "genre/GENRE_NAME/GENRE_ID/top-100";
+    private static final String BASE_URL = "https://www.beatport.com/";
+    private static final String TOP_100_PATTERN = BASE_URL + "genre/GENRE_NAME/GENRE_ID/top-100";
 
     static String buildUrl(Genre genre) {
         return TOP_100_PATTERN
