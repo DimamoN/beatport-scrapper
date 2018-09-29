@@ -4,9 +4,9 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class BeatportSearcherApplication {
+public class BeatPortSearcherApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(BeatportSearcherApplication.class, args);
+		SpringApplication.run(BeatPortSearcherApplication.class, args);
 	}
 }

@@ -13,7 +13,11 @@ import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
-class Top100Scrabbler {
+/**
+ * Scrabbler for retrieving top100 tracks.
+ * Target page example: https://www.beatport.com/genre/house/5/top-100
+ */
+public class Top100Scrabbler {
 
     private static RestTemplate rest = new RestTemplate();
 
@@ -30,7 +34,7 @@ class Top100Scrabbler {
                 .replace("GENRE_ID", String.valueOf(genre.getId()));
     }
 
-    static List<Track> processTOP100Page(Genre genre) {
+    public static List<Track> processTOP100Page(Genre genre) {
 
         System.out.printf("Attempting to get TOP100 %s tracks", genre.getName());
         ResponseEntity<String> response = rest.getForEntity(buildUrl(genre), String.class);

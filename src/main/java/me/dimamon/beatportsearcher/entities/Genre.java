@@ -18,19 +18,20 @@ public class Genre {
     public static Genre TRAP_FUTURE_BASS = new Genre("trap-future-bass", 87);
     public static Genre HOUSE = new Genre("house", 5);
 
-    // All supported genres
-    public static Set<Genre> ALL;
+    // All genres (to search by name)
+    public static Map<String, Genre> GENRES;
+
     static
     {
-        ALL = new HashSet<>();
-        ALL.add(Genre.DRUM_AND_BASS);
-        ALL.add(Genre.BREAKS);
-        ALL.add(Genre.DUBSTEP);
-        ALL.add(Genre.HIP_HOP_RNB);
-        ALL.add(Genre.TECHNO);
-        ALL.add(Genre.TRANCE);
-        ALL.add(Genre.TRAP_FUTURE_BASS);
-        ALL.add(Genre.HOUSE);
+        GENRES = new HashMap<>();
+        GENRES.put(Genre.DRUM_AND_BASS.name, Genre.DRUM_AND_BASS);
+        GENRES.put(Genre.BREAKS.name, Genre.BREAKS);
+        GENRES.put(Genre.DUBSTEP.name, Genre.DUBSTEP);
+        GENRES.put(Genre.HIP_HOP_RNB.name, Genre.HIP_HOP_RNB);
+        GENRES.put(Genre.TECHNO.name, Genre.TECHNO);
+        GENRES.put(Genre.TRANCE.name, Genre.TRANCE);
+        GENRES.put(Genre.TRAP_FUTURE_BASS.name, Genre.TRAP_FUTURE_BASS);
+        GENRES.put(Genre.HOUSE.name, Genre.HOUSE);
     }
 
     private String name;

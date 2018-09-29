@@ -22,7 +22,7 @@ public class ProcessTop100Parametrized {
 
     @Parameterized.Parameters(name = "{index}:{0}")
     public static Iterable<Genre> dataForTest() {
-        return Genre.ALL;
+        return Genre.GENRES.values();
     }
 
     @Test

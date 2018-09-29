@@ -1,5 +1,6 @@
 package me.dimamon.beatportsearcher.entities;
 
+import java.beans.Transient;
 import java.util.Objects;
 
 /**
@@ -7,7 +8,11 @@ import java.util.Objects;
  */
 public class Track {
 
-    private String title, artists;
+    private String title;
+
+    //todo: change to list (they are separated by '\n')
+    private String artists;
+
     //todo: add genre
 
     public Track(String title, String artists) {
@@ -23,6 +28,7 @@ public class Track {
         return artists;
     }
 
+    @Transient
     public boolean isFilled() {
         return !title.isEmpty() && !artists.isEmpty();
     }
