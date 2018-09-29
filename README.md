@@ -1,4 +1,5 @@
 # beatport-scrapper
-beatport top tracks scrapper (in development)
+Beatport top tracks scrapper (in development).
 
-- can get top100 tracks by genre
+- get top100 beatport tracks by genre 
+- find tracks by name in GoogleMusic
