@@ -23,6 +23,10 @@ public class Track {
         return artists;
     }
 
+    public boolean isFilled() {
+        return !title.isEmpty() && !artists.isEmpty();
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

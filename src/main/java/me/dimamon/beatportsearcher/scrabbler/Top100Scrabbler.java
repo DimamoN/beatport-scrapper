@@ -1,5 +1,6 @@
 package me.dimamon.beatportsearcher.scrabbler;
 
+import me.dimamon.beatportsearcher.entities.Genre;
 import me.dimamon.beatportsearcher.entities.Track;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -7,44 +8,31 @@ import org.jsoup.select.Elements;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
 class Top100Scrabbler {
 
-    enum Genre {
-        DRUM_AND_BASS("drum-and-bass"),
-        TECHNO("techno");
-        //TODO: ADD GENRES
+    private static RestTemplate rest = new RestTemplate();
 
-        private String string;
-
-        Genre(String string) {
-            this.string = string;
-        }
-
-        @Override
-        public String toString() {
-            return string;
-        }
-    }
+    private static final String TRACK_ELEMENT = "buk-track-meta-parent";
+    private static final String TRACK_ARTIST = "buk-track-artists";
+    private static final String TRACK_TITLE = "buk-track-primary-title";
 
     private static String BASE_URL = "https://www.beatport.com/";
-    private static String TOP_100_PATTERN = BASE_URL + "genre/GENRE/PAGE_NUM/top-100";
+    private static String TOP_100_PATTERN = BASE_URL + "genre/GENRE_NAME/GENRE_ID/top-100";
 
     static String buildUrl(Genre genre) {
         return TOP_100_PATTERN
-                .replace("GENRE", genre.toString())
-                .replace("PAGE_NUM", "1");
+                .replace("GENRE_NAME", genre.getName())
+                .replace("GENRE_ID", String.valueOf(genre.getId()));
     }
 
-    static void processTOP100Page(Genre genre) {
-        final String TRACK_ELEMENT = "buk-track-meta-parent";
-        final String TRACK_ARTIST = "buk-track-artists";
-        final String TRACK_TITLE = "buk-track-primary-title";
+    static List<Track> processTOP100Page(Genre genre) {
 
-        RestTemplate rest = new RestTemplate();
+        System.out.printf("Attempting to get TOP100 %s tracks", genre.getName());
         ResponseEntity<String> response = rest.getForEntity(buildUrl(genre), String.class);
 
         try {
@@ -57,12 +45,14 @@ class Top100Scrabbler {
                 return new Track(title, artists);
             }).collect(Collectors.toList());
 
-            //todo: return tracks?
             System.out.println(trackList);
+
+            return trackList;
 
         } catch (NullPointerException e) {
             System.err.println("Response is empty:" + e.toString());
         }
+        return Collections.emptyList();
     }
 
 }
