@@ -57,7 +57,8 @@ public class GoogleMusicTrackFinder implements TrackFinder {
                 final String trackStreamUrl = track.getStreamURL(StreamQuality.HIGH).toString();
 
                 TrackSearchResponse response = new TrackSearchResponse(
-                        trackStreamUrl, albumUrl, track.getTitle(), album.getName());
+                        trackStreamUrl, albumUrl,
+                        track.getTitle(), album.getName(), track.getArtist());
                 log.debug("Request: {} -> from album {}", request, response.getAlbumUrl());
                 return response;
             } else {

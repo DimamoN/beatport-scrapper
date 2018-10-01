@@ -4,17 +4,21 @@ public class TrackSearchResponse {
 
     private String streamUrl;
     private String albumUrl;
+
     private String trackName;
+    private String artistName;
     private String albumName;
 
     public TrackSearchResponse() {
     }
 
-    public TrackSearchResponse(String streamUrl, String albumUrl, String trackName, String albumName) {
+    public TrackSearchResponse(String streamUrl, String albumUrl,
+                               String trackName, String albumName, String artistName) {
         this.streamUrl = streamUrl;
         this.albumUrl = albumUrl;
         this.trackName = trackName;
         this.albumName = albumName;
+        this.artistName = artistName;
     }
 
     public String getStreamUrl() {
@@ -33,6 +37,10 @@ public class TrackSearchResponse {
         return albumName;
     }
 
+    public String getArtistName() {
+        return artistName;
+    }
+
     @Override
     public String toString() {
         return "TrackSearchResponse{" +
@@ -40,6 +48,7 @@ public class TrackSearchResponse {
                 ", albumUrl='" + albumUrl + '\'' +
                 ", trackName='" + trackName + '\'' +
                 ", albumName='" + albumName + '\'' +
+                ", artistName='" + artistName + '\'' +
                 '}';
     }
 }
