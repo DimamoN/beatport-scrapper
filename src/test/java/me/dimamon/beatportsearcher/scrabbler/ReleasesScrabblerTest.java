@@ -1,7 +1,8 @@
 package me.dimamon.beatportsearcher.scrabbler;
 
-import me.dimamon.beatportsearcher.entities.Genre;
-import me.dimamon.beatportsearcher.entities.Release;
+import me.dimamon.beatportsearcher.entities.beatport.Genre;
+import me.dimamon.beatportsearcher.entities.beatport.Release;
+import me.dimamon.beatportsearcher.scrappers.ReleasesScrapper;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

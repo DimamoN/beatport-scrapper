@@ -1,6 +1,6 @@
 package me.dimamon.beatportsearcher.controllers;
 
-import me.dimamon.beatportsearcher.entities.GoogleLoginCredentials;
+import me.dimamon.beatportsearcher.entities.web.GoogleLoginCredentials;
 import me.dimamon.beatportsearcher.services.AuthenticationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

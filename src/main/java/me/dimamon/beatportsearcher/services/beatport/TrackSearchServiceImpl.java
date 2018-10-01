@@ -1,10 +1,10 @@
 package me.dimamon.beatportsearcher.services.beatport;
 
-import me.dimamon.beatportsearcher.entities.Genre;
-import me.dimamon.beatportsearcher.entities.Release;
-import me.dimamon.beatportsearcher.entities.Track;
-import me.dimamon.beatportsearcher.scrabbler.ReleasesScrapper;
-import me.dimamon.beatportsearcher.scrabbler.Top100Scrapper;
+import me.dimamon.beatportsearcher.entities.beatport.Genre;
+import me.dimamon.beatportsearcher.entities.beatport.Release;
+import me.dimamon.beatportsearcher.entities.beatport.Track;
+import me.dimamon.beatportsearcher.scrappers.ReleasesScrapper;
+import me.dimamon.beatportsearcher.scrappers.Top100Scrapper;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.stereotype.Service;

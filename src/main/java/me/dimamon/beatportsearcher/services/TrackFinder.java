@@ -1,6 +1,6 @@
 package me.dimamon.beatportsearcher.services;
 
-import me.dimamon.beatportsearcher.entities.TrackSearchResponse;
+import me.dimamon.beatportsearcher.entities.web.TrackSearchResponse;
 
 public interface TrackFinder {
 

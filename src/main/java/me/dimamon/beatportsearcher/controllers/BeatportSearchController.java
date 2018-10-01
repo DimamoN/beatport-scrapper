@@ -1,8 +1,8 @@
 package me.dimamon.beatportsearcher.controllers;
 
-import me.dimamon.beatportsearcher.entities.Genre;
-import me.dimamon.beatportsearcher.entities.Release;
-import me.dimamon.beatportsearcher.entities.Track;
+import me.dimamon.beatportsearcher.entities.beatport.Genre;
+import me.dimamon.beatportsearcher.entities.beatport.Release;
+import me.dimamon.beatportsearcher.entities.beatport.Track;
 import me.dimamon.beatportsearcher.services.beatport.BeatportSearchService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;

@@ -1,4 +1,4 @@
-package me.dimamon.beatportsearcher.entities;
+package me.dimamon.beatportsearcher.entities.beatport;
 
 import java.util.HashMap;
 import java.util.Map;

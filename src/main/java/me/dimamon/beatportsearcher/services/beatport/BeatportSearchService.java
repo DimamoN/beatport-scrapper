@@ -1,8 +1,8 @@
 package me.dimamon.beatportsearcher.services.beatport;
 
-import me.dimamon.beatportsearcher.entities.Genre;
-import me.dimamon.beatportsearcher.entities.Release;
-import me.dimamon.beatportsearcher.entities.Track;
+import me.dimamon.beatportsearcher.entities.beatport.Genre;
+import me.dimamon.beatportsearcher.entities.beatport.Release;
+import me.dimamon.beatportsearcher.entities.beatport.Track;
 
 import java.util.List;
 

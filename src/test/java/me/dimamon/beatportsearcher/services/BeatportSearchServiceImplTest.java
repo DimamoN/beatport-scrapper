@@ -1,7 +1,7 @@
 package me.dimamon.beatportsearcher.services;
 
-import me.dimamon.beatportsearcher.entities.Genre;
-import me.dimamon.beatportsearcher.entities.Track;
+import me.dimamon.beatportsearcher.entities.beatport.Genre;
+import me.dimamon.beatportsearcher.entities.beatport.Track;
 import me.dimamon.beatportsearcher.services.beatport.TrackSearchServiceImpl;
 import org.junit.Test;
 

@@ -1,7 +1,8 @@
 package me.dimamon.beatportsearcher.scrabbler;
 
-import me.dimamon.beatportsearcher.entities.Genre;
-import me.dimamon.beatportsearcher.entities.Track;
+import me.dimamon.beatportsearcher.entities.beatport.Genre;
+import me.dimamon.beatportsearcher.entities.beatport.Track;
+import me.dimamon.beatportsearcher.scrappers.Top100Scrapper;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;

@@ -1,4 +1,4 @@
-package me.dimamon.beatportsearcher.scrabbler;
+package me.dimamon.beatportsearcher.scrappers;
 
 import org.springframework.web.client.RestTemplate;
 

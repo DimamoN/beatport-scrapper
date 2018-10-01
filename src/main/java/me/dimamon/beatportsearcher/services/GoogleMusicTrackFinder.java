@@ -7,7 +7,7 @@ import com.github.felixgail.gplaymusic.model.enums.ResultType;
 import com.github.felixgail.gplaymusic.model.enums.StreamQuality;
 import com.github.felixgail.gplaymusic.model.requests.SearchTypes;
 import com.github.felixgail.gplaymusic.model.responses.SearchResponse;
-import me.dimamon.beatportsearcher.entities.TrackSearchResponse;
+import me.dimamon.beatportsearcher.entities.web.TrackSearchResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

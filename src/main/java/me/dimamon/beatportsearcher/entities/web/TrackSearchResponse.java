@@ -1,4 +1,4 @@
-package me.dimamon.beatportsearcher.entities;
+package me.dimamon.beatportsearcher.entities.web;
 
 public class TrackSearchResponse {
 

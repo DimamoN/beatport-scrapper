@@ -1,5 +1,6 @@
 package me.dimamon.beatportsearcher.entities;
 
+import me.dimamon.beatportsearcher.entities.beatport.Track;
 import org.junit.Test;
 
 import java.util.Collections;

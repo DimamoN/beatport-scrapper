@@ -1,6 +1,6 @@
 package me.dimamon.beatportsearcher.controllers;
 
-import me.dimamon.beatportsearcher.entities.TrackSearchResponse;
+import me.dimamon.beatportsearcher.entities.web.TrackSearchResponse;
 import me.dimamon.beatportsearcher.services.GoogleMusicTrackFinder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;

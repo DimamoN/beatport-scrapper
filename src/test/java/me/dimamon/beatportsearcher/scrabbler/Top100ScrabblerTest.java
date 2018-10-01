@@ -1,6 +1,7 @@
 package me.dimamon.beatportsearcher.scrabbler;
 
-import me.dimamon.beatportsearcher.entities.Genre;
+import me.dimamon.beatportsearcher.entities.beatport.Genre;
+import me.dimamon.beatportsearcher.scrappers.Top100Scrapper;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;

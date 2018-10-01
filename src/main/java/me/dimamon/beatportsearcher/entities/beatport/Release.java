@@ -1,4 +1,4 @@
-package me.dimamon.beatportsearcher.entities;
+package me.dimamon.beatportsearcher.entities.beatport;
 
 /**
  * Representation of release entity from Releases page:
