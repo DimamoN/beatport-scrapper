@@ -9,7 +9,7 @@ import java.util.List;
 
 import static org.junit.Assert.*;
 
-public class TrackSearchServiceImplTest {
+public class BeatportSearchServiceImplTest {
 
     @Test
     public void retrieveTop100() {
