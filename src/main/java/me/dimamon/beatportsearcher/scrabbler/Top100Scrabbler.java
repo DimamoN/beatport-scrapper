@@ -8,7 +8,6 @@ import org.jsoup.select.Elements;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.client.RestTemplate;
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -20,17 +19,17 @@ import java.util.stream.Collectors;
  * Scrabbler for retrieving top100 tracks.
  * Target page example: https://www.beatport.com/genre/house/5/top-100
  */
-public class Top100Scrabbler {
+public class Top100Scrabbler extends AbstractBeatportScrabbler{
+
     private static final Logger log = LoggerFactory.getLogger(Top100Scrabbler.class);
 
-    private static RestTemplate rest = new RestTemplate();
+    private static final String TOP_100_PATTERN = BASE_URL + "genre/GENRE_NAME/GENRE_ID/top-100";
 
+    // classes
     private static final String TRACK_ELEMENT = "buk-track-meta-parent";
     private static final String TRACK_ARTIST = "buk-track-artists";
     private static final String TRACK_TITLE = "buk-track-primary-title";
 
-    private static final String BASE_URL = "https://www.beatport.com/";
-    private static final String TOP_100_PATTERN = BASE_URL + "genre/GENRE_NAME/GENRE_ID/top-100";
 
     static String buildUrl(Genre genre) {
         return TOP_100_PATTERN
@@ -38,7 +37,7 @@ public class Top100Scrabbler {
                 .replace("GENRE_ID", String.valueOf(genre.getId()));
     }
 
-    static List<String> parseArtists(String artists) {
+    static List<String> parseArtists(final String artists) {
         return Arrays.asList(artists.split("\n"));
     }
 
@@ -50,8 +49,8 @@ public class Top100Scrabbler {
             Document doc = Jsoup.parse(Objects.requireNonNull(response.getBody()));
             Elements tracks = doc.getElementsByClass(TRACK_ELEMENT);
             List<Track> trackList = tracks.stream().map(el -> {
-                final String title = el.getElementsByClass(TRACK_TITLE).get(0).attr("title");
-                final String artists = el.getElementsByClass(TRACK_ARTIST).get(0)
+                final String title = el.getElementsByClass(TRACK_TITLE).first().attr("title");
+                final String artists = el.getElementsByClass(TRACK_ARTIST).first()
                         .getElementsByAttribute("data-artist").html();
                 return new Track(title, parseArtists(artists));
             }).collect(Collectors.toList());
