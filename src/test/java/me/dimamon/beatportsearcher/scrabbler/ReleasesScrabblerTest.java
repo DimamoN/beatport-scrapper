@@ -18,12 +18,12 @@ public class ReleasesScrabblerTest {
     public void buildUrl() {
         assertEquals(
                 "https://www.beatport.com/releases/all?genres=1",
-                ReleasesScrabbler.buildUrl(Genre.DRUM_AND_BASS));
+                ReleasesScrapper.buildUrl(Genre.DRUM_AND_BASS));
     }
 
     @Test
     public void getLatestReleases() {
-        List<Release> releases = ReleasesScrabbler.getLatestReleases(Genre.DRUM_AND_BASS);
+        List<Release> releases = ReleasesScrapper.getLatestReleases(Genre.DRUM_AND_BASS);
         log.debug(releases.toString());
     }
 }

@@ -2,7 +2,7 @@ package me.dimamon.beatportsearcher.services.beatport;
 
 import me.dimamon.beatportsearcher.entities.Genre;
 import me.dimamon.beatportsearcher.entities.Track;
-import me.dimamon.beatportsearcher.scrabbler.Top100Scrabbler;
+import me.dimamon.beatportsearcher.scrabbler.Top100Scrapper;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.stereotype.Service;
@@ -22,7 +22,7 @@ public class TrackSearchServiceImpl implements TrackSearchService {
             throw new NullPointerException("genre can't be null");
         }
 
-        List<Track> tracks = Top100Scrabbler.processTOP100Page(genre);
+        List<Track> tracks = Top100Scrapper.processTOP100Page(genre);
         log.debug("{} top tracks found for genre: {}", tracks.size(), genre.getName());
         return tracks;
     }

@@ -12,13 +12,13 @@ public class Top100ScrabblerTest {
     public void buildUrl() {
         assertEquals(
                 "https://www.beatport.com/genre/drum-and-bass/1/top-100",
-                Top100Scrabbler.buildUrl(Genre.DRUM_AND_BASS));
+                Top100Scrapper.buildUrl(Genre.DRUM_AND_BASS));
         assertEquals(
                 "https://www.beatport.com/genre/dubstep/18/top-100",
-                Top100Scrabbler.buildUrl(Genre.DUBSTEP));
+                Top100Scrapper.buildUrl(Genre.DUBSTEP));
         assertEquals(
                 "https://www.beatport.com/genre/hip-hop-r-and-b/38/top-100",
-                Top100Scrabbler.buildUrl(Genre.HIP_HOP_RNB));
+                Top100Scrapper.buildUrl(Genre.HIP_HOP_RNB));
     }
 
 }

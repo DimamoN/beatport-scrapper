@@ -14,9 +14,9 @@ import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
-public class ReleasesScrabbler extends AbstractBeatportScrabbler {
+public class ReleasesScrapper extends AbstractBeatportScrapper {
 
-    private static final Logger log = LoggerFactory.getLogger(ReleasesScrabbler.class);
+    private static final Logger log = LoggerFactory.getLogger(ReleasesScrapper.class);
 
     //todo: add support for request with multiple genres
     private static final String GET_RELEASES_PATTERN = BASE_URL + "releases/all?genres=GENRES";

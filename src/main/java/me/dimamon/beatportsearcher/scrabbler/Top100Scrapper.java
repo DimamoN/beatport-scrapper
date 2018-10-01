@@ -19,9 +19,9 @@ import java.util.stream.Collectors;
  * Scrabbler for retrieving top100 tracks.
  * Target page example: https://www.beatport.com/genre/house/5/top-100
  */
-public class Top100Scrabbler extends AbstractBeatportScrabbler{
+public class Top100Scrapper extends AbstractBeatportScrapper {
 
-    private static final Logger log = LoggerFactory.getLogger(Top100Scrabbler.class);
+    private static final Logger log = LoggerFactory.getLogger(Top100Scrapper.class);
 
     private static final String TOP_100_PATTERN = BASE_URL + "genre/GENRE_NAME/GENRE_ID/top-100";
 

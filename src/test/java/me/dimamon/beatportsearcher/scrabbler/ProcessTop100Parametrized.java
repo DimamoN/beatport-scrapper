@@ -27,7 +27,7 @@ public class ProcessTop100Parametrized {
 
     @Test
     public void processTOP100Page() {
-        List<Track> topTracks = Top100Scrabbler.processTOP100Page(genre);
+        List<Track> topTracks = Top100Scrapper.processTOP100Page(genre);
         assertEquals(100, topTracks.size());
         topTracks.forEach(track -> assertTrue(track.isFilled()));
     }
