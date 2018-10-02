@@ -1,0 +1,1 @@
+web: java $JAVA_OPTS -jar target/beatport-searcher-1.0.0-SNAPSHOT.jar

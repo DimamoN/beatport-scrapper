@@ -31,7 +31,7 @@ public class Top100Scrapper extends AbstractBeatportScrapper {
     private static final String TRACK_TITLE = "buk-track-primary-title";
 
 
-    static String buildUrl(Genre genre) {
+    public static String buildUrl(Genre genre) {
         return TOP_100_PATTERN
                 .replace("GENRE_NAME", genre.getName())
                 .replace("GENRE_ID", String.valueOf(genre.getId()));

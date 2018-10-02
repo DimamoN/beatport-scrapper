@@ -50,7 +50,7 @@ public class ReleasesScrapper extends AbstractBeatportScrapper {
     private static String RELEASE_LABELS = "buk-horz-release-labels";
     private static String RELEASE_DATE = "buk-horz-release-released";
 
-    static String buildUrl(Genre genre) {
+    public static String buildUrl(Genre genre) {
         return GET_RELEASES_PATTERN
                 .replace("GENRES", String.valueOf(genre.getId()));
     }
