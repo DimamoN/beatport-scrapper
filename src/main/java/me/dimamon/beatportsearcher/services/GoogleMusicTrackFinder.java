@@ -16,6 +16,7 @@ import org.springframework.stereotype.Service;
 import java.io.IOException;
 import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
 
 @Service("googleTrackFinder")
 public class GoogleMusicTrackFinder implements TrackFinder {
@@ -28,6 +29,8 @@ public class GoogleMusicTrackFinder implements TrackFinder {
     private static final String GOOGLE_PLAY_ALBUM_LINK = "https://play.google.com/music/m/";
 
     private static SearchTypes SEARCH_TRACK = new SearchTypes();
+
+    private static final String EMPTY_ALBUM_ART = "https://www.tunefind.com/i/album-art-empty.png";
 
     static {
         SEARCH_TRACK.setTypes(Collections.singletonList(ResultType.TRACK));
@@ -56,9 +59,17 @@ public class GoogleMusicTrackFinder implements TrackFinder {
                 final String albumUrl = GOOGLE_PLAY_ALBUM_LINK + album.getAlbumId();
                 final String trackStreamUrl = track.getStreamURL(StreamQuality.HIGH).toString();
 
+                String albumArt = EMPTY_ALBUM_ART;
+
+                Optional<String> albumArtUrl = album.getAlbumArtUrl();
+                if (albumArtUrl.isPresent()) {
+                    albumArt = albumArtUrl.get();
+                }
+
                 TrackSearchResponse response = new TrackSearchResponse(
                         trackStreamUrl, albumUrl,
-                        track.getTitle(), album.getName(), track.getArtist());
+                        track.getTitle(), album.getName(),
+                        track.getArtist(), albumArt);
                 log.debug("Request: {} -> from album {}", request, response.getAlbumUrl());
                 return response;
             } else {
